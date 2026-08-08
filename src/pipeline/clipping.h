@@ -46,10 +46,14 @@ inline ClipVertex lerpClip(const ClipVertex &a, const ClipVertex &b, float t)
 }
 
 // Uses a fixed array to avoid heap allocations.
-struct ClipPolygon {
+struct ClipPolygon
+{
     ClipVertex verts[12];
     int count = 0;
-    void push_back(const ClipVertex& v) { verts[count++] = v; }
+    void push_back(const ClipVertex &v)
+    {
+        verts[count++] = v;
+    }
 };
 
 // Clip a polygon against one plane.
@@ -62,12 +66,18 @@ inline ClipPolygon clipAgainstPlane(const ClipPolygon &poly, int plane)
     {
         switch (plane)
         {
-        case 0: return v.clip.w + v.clip.x;
-        case 1: return v.clip.w - v.clip.x;
-        case 2: return v.clip.w + v.clip.y;
-        case 3: return v.clip.w - v.clip.y;
-        case 4: return v.clip.w + v.clip.z;
-        case 5: return v.clip.w - v.clip.z;
+        case 0:
+            return v.clip.w + v.clip.x;
+        case 1:
+            return v.clip.w - v.clip.x;
+        case 2:
+            return v.clip.w + v.clip.y;
+        case 3:
+            return v.clip.w - v.clip.y;
+        case 4:
+            return v.clip.w + v.clip.z;
+        case 5:
+            return v.clip.w - v.clip.z;
         }
         return 0.f;
     };

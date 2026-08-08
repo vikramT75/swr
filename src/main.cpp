@@ -30,10 +30,10 @@ int main(int, char *[])
     SceneLoader loader;
     if (!loader.load("assets/scenes/scene.json", scene, assets))
     {
-        std::cout << "scene.json not found or invalid. Falling back to default.json...\n";
-        if (!loader.load("assets/scenes/default.json", scene, assets))
+        std::cout << "scene.json not found or invalid. Falling back to backup.json...\n";
+        if (!loader.load("assets/scenes/backup.json", scene, assets))
         {
-            std::cerr << "Fatal: Could not load scene.json OR default.json. Exiting.\n";
+            std::cerr << "Fatal: Could not load scene.json OR backup.json. Exiting.\n";
             return 1;
         }
     }

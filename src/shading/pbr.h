@@ -16,6 +16,10 @@ struct PBRShader : Shader
     Vec3 albedo = {1.f, 1.f, 1.f};
     float metallic = 0.f, roughness = 0.5f, ao = 1.f;
     float opacity = 1.0f; // 1.0 = fully opaque, 0.0 = fully transparent
+    // Curved-surface fix: negate rDir.y before env-map lookup.
+    // Needed for convex objects (e.g. sphere) where the silhouette normal points
+    // downward in screen space, inverting the specular reflection.
+    bool flipReflectionY = false;
 
     const Texture *albedoMap = nullptr, *roughnessMap = nullptr, *metallicMap = nullptr, *normalMap = nullptr;
     const Texture *irradianceMap = nullptr, *environmentMap = nullptr;
@@ -75,6 +79,10 @@ struct PBRShader : Shader
         }
 
         Vec3 V = (cameraPos - frag.position).normalized();
+        // For double-sided surfaces (CullMode::None), the interpolated normal may point
+        // away from the camera on back faces. Always orient N toward the viewer.
+        if (N.dot(V) < 0.0f)
+            N = N * -1.0f;
         Vec3 R = (N * (2.0f * N.dot(V)) - V).normalized();
 
         // --- 3. Material Sampling ---
@@ -146,8 +154,11 @@ struct PBRShader : Shader
         Vec3 specularIBL = {0.f, 0.f, 0.f};
         if (environmentMap && environmentMap->loaded)
         {
-            // Roughness jitter hack — perturbs reflection ray toward normal for rough surfaces
-            specularIBL = environmentMap->sampleSpherical((R + N * (rough * rough)).normalized());
+            // Roughness jitter — perturbs reflection ray toward normal for rough surfaces
+            Vec3 rDir = (R + N * (rough * rough)).normalized();
+            if (flipReflectionY)
+                rDir.y = -rDir.y;
+            specularIBL = environmentMap->sampleSpherical(rDir);
         }
 
         Vec3 ambient = (diffuseIBL + (specularIBL * (F_env * (1.0f - rough)))) * ao;

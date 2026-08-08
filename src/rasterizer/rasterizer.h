@@ -16,9 +16,8 @@
 // The template parameter is resolved at compile time so all dead branches
 // are eliminated — zero runtime overhead from the branching.
 template <bool IsShadowPass, bool WriteDepth = true>
-inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer *db, ShadowMap *sm,
-                              CullMode cull, const Shader *shader,
-                              int tileMinX, int tileMaxX, int tileMinY, int tileMaxY)
+inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer *db, ShadowMap *sm, CullMode cull,
+                              const Shader *shader, int tileMinX, int tileMaxX, int tileMinY, int tileMaxY)
 {
     ScreenVertex v0 = tri.v[0], v1 = tri.v[1], v2 = tri.v[2];
 
@@ -28,13 +27,20 @@ inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer 
 
     // 2. Culling (Positive area = backface in Y-down screen space)
     float originalArea = edgeFunc(v0, v1, v2.sx, v2.sy);
-    if (cull == CullMode::Back && originalArea >= 0.f) return;
-    if (cull == CullMode::Front && originalArea <= 0.f) return;
-    if (std::abs(originalArea) < 0.00001f) return;
+    if (cull == CullMode::Back && originalArea >= 0.f)
+        return;
+    if (cull == CullMode::Front && originalArea <= 0.f)
+        return;
+    if (std::abs(originalArea) < 0.00001f)
+        return;
 
     // 3. Force positive winding for the inner loop
     float area2 = originalArea;
-    if (area2 < 0.f) { std::swap(v1, v2); area2 = -area2; }
+    if (area2 < 0.f)
+    {
+        std::swap(v1, v2);
+        area2 = -area2;
+    }
 
     // 4. Bounding Box clipped to tile
     int minX = std::max(tileMinX, (int)std::floor(std::min({v0.sx, v1.sx, v2.sx})));
@@ -67,7 +73,8 @@ inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer 
                 {
                     // Depth-only: write into shadow map.
                     // NOTE: shadow pass is serial — ShadowMap::testAndSet is NOT thread-safe.
-                    if (sm) sm->testAndSet(x, y, z);
+                    if (sm)
+                        sm->testAndSet(x, y, z);
                 }
                 else
                 {
@@ -81,17 +88,16 @@ inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer 
 
                         FragmentInput frag;
                         frag.position = (v0.worldPos * b0 + v1.worldPos * b1 + v2.worldPos * b2) * w;
-                        frag.normal   = (v0.normal   * b0 + v1.normal   * b1 + v2.normal   * b2) * w;
-                        frag.uv       = (v0.uv       * b0 + v1.uv       * b1 + v2.uv       * b2) * w;
-                        frag.tangent  = (v0.tangent  * b0 + v1.tangent  * b1 + v2.tangent  * b2) * w;
-                        frag.depth    = z;
+                        frag.normal = (v0.normal * b0 + v1.normal * b1 + v2.normal * b2) * w;
+                        frag.uv = (v0.uv * b0 + v1.uv * b1 + v2.uv * b2) * w;
+                        frag.tangent = (v0.tangent * b0 + v1.tangent * b1 + v2.tangent * b2) * w;
+                        frag.depth = z;
 
                         // shade() returns a raw linear HDR Vec4 (rgb, alpha)
-                        Vec4 shaderOut = shader ? shader->shade(frag)
-                                                : Vec4{((tri.color >> 16) & 0xFF) / 255.f,
-                                                       ((tri.color >>  8) & 0xFF) / 255.f,
-                                                       ( tri.color        & 0xFF) / 255.f, 
-                                                       1.0f};
+                        Vec4 shaderOut =
+                            shader ? shader->shade(frag)
+                                   : Vec4{((tri.color >> 16) & 0xFF) / 255.f, ((tri.color >> 8) & 0xFF) / 255.f,
+                                          (tri.color & 0xFF) / 255.f, 1.0f};
 
                         Vec3 srcColor = {shaderOut.x, shaderOut.y, shaderOut.z};
                         float alpha = shaderOut.w;
@@ -111,8 +117,12 @@ inline void rasterizeTriangle(const Triangle &tri, Framebuffer *fb, Depthbuffer 
                     }
                 }
             }
-            w0 += stepX0; w1 += stepX1; w2 += stepX2;
+            w0 += stepX0;
+            w1 += stepX1;
+            w2 += stepX2;
         }
-        w0_row += stepY0; w1_row += stepY1; w2_row += stepY2;
+        w0_row += stepY0;
+        w1_row += stepY1;
+        w2_row += stepY2;
     }
 }

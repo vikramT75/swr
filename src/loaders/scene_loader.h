@@ -162,6 +162,7 @@ class SceneLoader
                 shader->roughness = jm.value("roughness", 0.5f);
                 shader->ao        = jm.value("ao",        1.0f);
                 shader->opacity   = jm.value("opacity",   1.0f);
+                shader->flipReflectionY = jm.value("flipReflectionY", false);
 
                 // Texture maps (optional)
                 if (jm.contains("albedoMap"))
