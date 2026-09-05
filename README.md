@@ -160,22 +160,14 @@ Renderer::render(Scene&)
 sudo apt install libsdl2-dev   # Debian/Ubuntu
 # brew install sdl2            # macOS
 
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j$(nproc)
-./build/swr
-```
-
-Or use the convenience script:
-
-```bash
-./build.sh
+make
 ```
 
 ### Windows (WSL)
 
 ```bash
 sudo apt install libsdl2-dev
-bash build.sh
+make
 ```
 
 ### Windows (MSVC / Visual Studio)
@@ -211,7 +203,7 @@ swr/
 ├── screenshots/       # Render output images
 ├── docs/              # Additional documentation
 ├── CMakeLists.txt
-└── build.sh
+└── Makefile
 ```
 
 ---
