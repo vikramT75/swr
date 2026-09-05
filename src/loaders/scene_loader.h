@@ -116,7 +116,9 @@ class SceneLoader
             {
                 Light light;
                 std::string type = jl.value("type", "directional");
-                light.type = (type == "point") ? LightType::Point : LightType::Directional;
+                if (type == "spot")        light.type = LightType::Spot;
+                else if (type == "point")  light.type = LightType::Point;
+                else                       light.type = LightType::Directional;
 
                 if (jl.contains("direction"))
                 {
@@ -139,6 +141,11 @@ class SceneLoader
                 light.attLinear    = jl.value("attLinear",    0.09f);
                 light.attQuadratic = jl.value("attQuadratic", 0.032f);
                 light.castsShadow  = jl.value("castsShadow",  false);
+
+                if (jl.contains("cutOff"))
+                    light.cutOff = std::cos(MathUtils::toRadians(jl.value("cutOff", 12.5f)));
+                if (jl.contains("outerCutOff"))
+                    light.outerCutOff = std::cos(MathUtils::toRadians(jl.value("outerCutOff", 17.5f)));
 
                 scene.lights.add(light);
             }

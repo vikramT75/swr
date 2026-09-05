@@ -1,344 +1,344 @@
 {
-    "camera": {
-        "position": [
-            0.0,
-            4.0,
-            10.0
-        ],
-        "yaw": -90.0,
-        "pitch": -15.0,
-        "fov": 60.0,
-        "zNear": 0.1,
-        "zFar": 100.0
-    },
-    "skybox": "assets/textures/skybox.hdr",
-    "shadow": {
-        "width": 1024,
-        "height": 1024,
-        "bias": 0.012,
-        "direction": [
-            -0.53,
-            -0.76,
-            0.38
-        ],
-        "center": [
-            0.0,
-            0.0,
-            0.0
-        ],
-        "extent": 12.0,
-        "zNear": 0.1,
-        "zFar": 40.0
-    },
-    "lights": [
-        {
-            "type": "directional",
-            "direction": [
-                -0.53,
-                -0.76,
-                0.38
-            ],
-            "color": [
-                1.0,
-                1.0,
-                1.0
-            ],
-            "intensity": 2.0,
-            "castsShadow": true
-        },
-        {
-            "type": "directional",
-            "direction": [
-                1.0,
-                -0.5,
-                0.0
-            ],
-            "color": [
-                0.8,
-                0.8,
-                1.0
-            ],
-            "intensity": 0.5,
-            "castsShadow": false
-        },
-        {
-            "type": "point",
-            "position": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "color": [
-                1.0,
-                0.95,
-                0.85
-            ],
-            "intensity": 0.0,
-            "attConstant": 1.0,
-            "attLinear": 0.22,
-            "attQuadratic": 0.2,
-            "castsShadow": false
-        }
+  "camera": {
+    "position": [
+      0.0,
+      4.0,
+      10.0
     ],
-    "materials": {
-        "center": {
-            "albedoMap": "assets/textures/gabagool.jpg",
-            "normalMap": "assets/textures/cube_normal.png",
-            "metallic": 0.3,
-            "roughness": 0.4,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "block": {
-            "albedoMap": "assets/textures/gospelv1.png",
-            "metallic": 0.0,
-            "roughness": 0.9,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "ground": {
-            "albedo": [
-                0.4,
-                0.38,
-                0.35
-            ],
-            "roughness": 0.85,
-            "cullMode": "none",
-            "castsShadow": false
-        },
-        "pillar": {
-            "albedo": [
-                0.35,
-                0.3,
-                0.3
-            ],
-            "roughness": 0.7,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "gold": {
-            "albedo": [
-                1.0,
-                0.85,
-                0.4
-            ],
-            "metallic": 1.0,
-            "roughness": 0.15,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "plastic": {
-            "albedo": [
-                0.1,
-                0.5,
-                0.9
-            ],
-            "metallic": 0.0,
-            "roughness": 0.1,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "matte": {
-            "albedo": [
-                0.8,
-                0.2,
-                0.2
-            ],
-            "metallic": 0.0,
-            "roughness": 0.9,
-            "cullMode": "back",
-            "castsShadow": true
-        },
-        "glassBlue": {
-            "albedo": [
-                0.1,
-                0.4,
-                1.0
-            ],
-            "metallic": 0.1,
-            "roughness": 0.02,
-            "opacity": 0.4,
-            "transparent": true,
-            "cullMode": "none",
-            "castsShadow": false
-        },
-        "glassRed": {
-            "albedo": [
-                1.0,
-                0.2,
-                0.2
-            ],
-            "metallic": 0.1,
-            "roughness": 0.02,
-            "opacity": 0.4,
-            "transparent": true,
-            "cullMode": "none",
-            "castsShadow": false
-        }
+    "yaw": -90.0,
+    "pitch": -15.0,
+    "fov": 60.0,
+    "zNear": 0.1,
+    "zFar": 100.0
+  },
+  "skybox": "assets/textures/skybox.hdr",
+  "shadow": {
+    "width": 1024,
+    "height": 1024,
+    "bias": 0.012,
+    "direction": [
+      -0.53,
+      -0.76,
+      0.38
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "extent": 12.0,
+    "zNear": 0.1,
+    "zFar": 40.0
+  },
+  "lights": [
+    {
+      "type": "directional",
+      "direction": [
+        -0.53,
+        -0.76,
+        0.38
+      ],
+      "color": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "intensity": 2.0,
+      "castsShadow": true
     },
-    "entities": [
-        {
-            "name": "ground",
-            "mesh": "assets/models/ground.obj",
-            "material": "ground",
-            "scale": [
-                2.0,
-                1.0,
-                2.0
-            ]
-        },
-        {
-            "name": "center",
-            "mesh": "assets/models/cube.obj",
-            "material": "center",
-            "position": [
-                0.0,
-                1.5,
-                0.0
-            ]
-        },
-        {
-            "name": "pillar_0",
-            "mesh": "assets/models/cube.obj",
-            "material": "pillar",
-            "position": [
-                4.0,
-                2.0,
-                4.0
-            ],
-            "scale": [
-                0.8,
-                4.0,
-                0.8
-            ]
-        },
-        {
-            "name": "pillar_1",
-            "mesh": "assets/models/cube.obj",
-            "material": "pillar",
-            "position": [
-                -4.0,
-                2.0,
-                4.0
-            ],
-            "scale": [
-                0.8,
-                4.0,
-                0.8
-            ]
-        },
-        {
-            "name": "pillar_2",
-            "mesh": "assets/models/cube.obj",
-            "material": "pillar",
-            "position": [
-                4.0,
-                2.0,
-                -4.0
-            ],
-            "scale": [
-                0.8,
-                4.0,
-                0.8
-            ]
-        },
-        {
-            "name": "pillar_3",
-            "mesh": "assets/models/cube.obj",
-            "material": "pillar",
-            "position": [
-                -4.0,
-                2.0,
-                -4.0
-            ],
-            "scale": [
-                0.8,
-                4.0,
-                0.8
-            ]
-        },
-        {
-            "name": "orbiter_0",
-            "mesh": "assets/models/cube.obj",
-            "material": "gold",
-            "parent": "center",
-            "scale": [
-                0.4,
-                0.4,
-                0.4
-            ]
-        },
-        {
-            "name": "orbiter_1",
-            "mesh": "assets/models/cube.obj",
-            "material": "plastic",
-            "parent": "center",
-            "scale": [
-                0.4,
-                0.4,
-                0.4
-            ]
-        },
-        {
-            "name": "orbiter_2",
-            "mesh": "assets/models/cube.obj",
-            "material": "matte",
-            "parent": "center",
-            "scale": [
-                0.4,
-                0.4,
-                0.4
-            ]
-        },
-        {
-            "name": "block",
-            "mesh": "assets/models/cube.obj",
-            "material": "block",
-            "position": [
-                0.0,
-                5.0,
-                0.0
-            ]
-        },
-        {
-            "name": "glassPaneBlue",
-            "mesh": "assets/models/cube.obj",
-            "material": "glassBlue",
-            "position": [
-                4.0,
-                6.0,
-                5.0
-            ],
-            "scale": [
-                2.0,
-                2.0,
-                0.1
-            ],
-            "rotation": [
-                0.0,
-                15.0,
-                0.0
-            ]
-        },
-        {
-            "name": "glassPaneRed",
-            "mesh": "assets/models/cube.obj",
-            "material": "glassRed",
-            "position": [
-                3.5,
-                6.0,
-                3.0
-            ],
-            "scale": [
-                2.0,
-                2.0,
-                0.1
-            ],
-            "rotation": [
-                0.0,
-                10.0,
-                0.0
-            ]
-        }
-    ]
+    {
+      "type": "directional",
+      "direction": [
+        1.0,
+        -0.5,
+        0.0
+      ],
+      "color": [
+        0.8,
+        0.8,
+        1.0
+      ],
+      "intensity": 0.5,
+      "castsShadow": false
+    },
+    {
+      "type": "point",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        1.0,
+        0.95,
+        0.85
+      ],
+      "intensity": 0.0,
+      "attConstant": 1.0,
+      "attLinear": 0.22,
+      "attQuadratic": 0.2,
+      "castsShadow": false
+    }
+  ],
+  "materials": {
+    "center": {
+      "albedoMap": "assets/textures/gabagool.jpg",
+      "normalMap": "assets/textures/cube_normal.png",
+      "metallic": 0.3,
+      "roughness": 0.4,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "block": {
+      "albedoMap": "assets/textures/gospelv1.png",
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "ground": {
+      "albedo": [
+        0.4,
+        0.38,
+        0.35
+      ],
+      "roughness": 0.85,
+      "cullMode": "none",
+      "castsShadow": false
+    },
+    "pillar": {
+      "albedo": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "roughness": 0.7,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "gold": {
+      "albedo": [
+        1.0,
+        0.85,
+        0.4
+      ],
+      "metallic": 1.0,
+      "roughness": 0.15,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "plastic": {
+      "albedo": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "metallic": 0.0,
+      "roughness": 0.1,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "matte": {
+      "albedo": [
+        0.8,
+        0.2,
+        0.2
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "cullMode": "back",
+      "castsShadow": true
+    },
+    "glassBlue": {
+      "albedo": [
+        0.1,
+        0.4,
+        1.0
+      ],
+      "metallic": 0.1,
+      "roughness": 0.02,
+      "opacity": 0.4,
+      "transparent": true,
+      "cullMode": "none",
+      "castsShadow": false
+    },
+    "glassRed": {
+      "albedo": [
+        1.0,
+        0.2,
+        0.2
+      ],
+      "metallic": 0.1,
+      "roughness": 0.02,
+      "opacity": 0.4,
+      "transparent": true,
+      "cullMode": "none",
+      "castsShadow": false
+    }
+  },
+  "entities": [
+    {
+      "name": "ground",
+      "mesh": "assets/models/ground.obj",
+      "material": "ground",
+      "scale": [
+        2.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "name": "center",
+      "mesh": "assets/models/cube.obj",
+      "material": "center",
+      "position": [
+        0.0,
+        1.5,
+        0.0
+      ]
+    },
+    {
+      "name": "pillar_0",
+      "mesh": "assets/models/cube.obj",
+      "material": "pillar",
+      "position": [
+        4.0,
+        2.0,
+        4.0
+      ],
+      "scale": [
+        0.8,
+        4.0,
+        0.8
+      ]
+    },
+    {
+      "name": "pillar_1",
+      "mesh": "assets/models/cube.obj",
+      "material": "pillar",
+      "position": [
+        -4.0,
+        2.0,
+        4.0
+      ],
+      "scale": [
+        0.8,
+        4.0,
+        0.8
+      ]
+    },
+    {
+      "name": "pillar_2",
+      "mesh": "assets/models/cube.obj",
+      "material": "pillar",
+      "position": [
+        4.0,
+        2.0,
+        -4.0
+      ],
+      "scale": [
+        0.8,
+        4.0,
+        0.8
+      ]
+    },
+    {
+      "name": "pillar_3",
+      "mesh": "assets/models/cube.obj",
+      "material": "pillar",
+      "position": [
+        -4.0,
+        2.0,
+        -4.0
+      ],
+      "scale": [
+        0.8,
+        4.0,
+        0.8
+      ]
+    },
+    {
+      "name": "orbiter_0",
+      "mesh": "assets/models/cube.obj",
+      "material": "gold",
+      "parent": "center",
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "name": "orbiter_1",
+      "mesh": "assets/models/cube.obj",
+      "material": "plastic",
+      "parent": "center",
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "name": "orbiter_2",
+      "mesh": "assets/models/cube.obj",
+      "material": "matte",
+      "parent": "center",
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "name": "block",
+      "mesh": "assets/models/cube.obj",
+      "material": "block",
+      "position": [
+        0.0,
+        5.0,
+        0.0
+      ]
+    },
+    {
+      "name": "glassPaneBlue",
+      "mesh": "assets/models/cube.obj",
+      "material": "glassBlue",
+      "position": [
+        4.0,
+        6.0,
+        5.0
+      ],
+      "scale": [
+        2.0,
+        2.0,
+        0.1
+      ],
+      "rotation": [
+        0.0,
+        15.0,
+        0.0
+      ]
+    },
+    {
+      "name": "glassPaneRed",
+      "mesh": "assets/models/cube.obj",
+      "material": "glassRed",
+      "position": [
+        3.5,
+        6.0,
+        3.0
+      ],
+      "scale": [
+        2.0,
+        2.0,
+        0.1
+      ],
+      "rotation": [
+        0.0,
+        10.0,
+        0.0
+      ]
+    }
+  ]
 }

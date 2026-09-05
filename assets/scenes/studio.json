@@ -1,80 +1,130 @@
 {
   "camera": {
-    "position": [0.0, 3.6, 11.5],
+    "position": [
+      0.0,
+      3.6,
+      11.5
+    ],
     "yaw": -90.0,
     "pitch": -8.0,
     "fov": 50.0,
     "zNear": 0.1,
     "zFar": 100.0
   },
-
   "skybox": "assets/textures/studio.hdr",
-
   "shadow": {
     "width": 2048,
     "height": 2048,
     "bias": 0.012,
-    "direction": [-0.543, -0.419, 0.728],
-    "center": [0.0, 1.0, 0.0],
+    "direction": [
+      -0.543,
+      -0.419,
+      0.728
+    ],
+    "center": [
+      0.0,
+      1.0,
+      0.0
+    ],
     "extent": 12.0,
     "zNear": 0.1,
     "zFar": 50.0
   },
-
   "lights": [
     {
       "name": "key_studio_light",
       "type": "directional",
-      "direction": [-0.543, -0.419, 0.728],
-      "color": [1.0, 0.98, 0.95],
+      "direction": [
+        -0.543,
+        -0.419,
+        0.728
+      ],
+      "color": [
+        1.0,
+        0.98,
+        0.95
+      ],
       "intensity": 3.0,
       "castsShadow": true
     },
     {
       "name": "fill_light",
       "type": "directional",
-      "direction": [0.707, -0.3, -0.64],
-      "color": [0.7, 0.8, 1.0],
+      "direction": [
+        0.707,
+        -0.3,
+        -0.64
+      ],
+      "color": [
+        0.7,
+        0.8,
+        1.0
+      ],
       "intensity": 0.6,
       "castsShadow": false
     },
     {
       "name": "flashlight",
-      "type": "point",
-      "position": [0.0, 0.0, 0.0],
-      "color": [1.0, 0.95, 0.85],
+      "type": "spot",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        1.0,
+        0.95,
+        0.85
+      ],
       "intensity": 0.0,
       "attConstant": 1.0,
       "attLinear": 0.15,
       "attQuadratic": 0.02,
-      "castsShadow": false
+      "castsShadow": false,
+      "cutOff": 12.5,
+      "outerCutOff": 17.5
     }
   ],
-
   "materials": {
     "floor": {
-      "albedo": [0.10, 0.11, 0.12],
+      "albedo": [
+        0.1,
+        0.11,
+        0.12
+      ],
       "metallic": 0.05,
       "roughness": 0.85,
       "cullMode": "none",
       "castsShadow": false
     },
     "pedestal": {
-      "albedo": [0.18, 0.18, 0.20],
+      "albedo": [
+        0.18,
+        0.18,
+        0.2
+      ],
       "metallic": 0.0,
       "roughness": 0.8,
       "cullMode": "back",
       "castsShadow": true
     },
     "gold_hero": {
-      "albedo": [1.0, 0.85, 0.35],
+      "albedo": [
+        1.0,
+        0.85,
+        0.35
+      ],
       "metallic": 1.0,
-      "roughness": 0.10,
+      "roughness": 0.1,
       "cullMode": "back",
       "castsShadow": true
     },
     "chrome_mirror": {
-      "albedo": [0.98, 0.98, 0.99],
+      "albedo": [
+        0.98,
+        0.98,
+        0.99
+      ],
       "metallic": 1.0,
       "roughness": 0.04,
       "flipReflectionY": true,
@@ -82,7 +132,11 @@
       "castsShadow": true
     },
     "copper_polished": {
-      "albedo": [0.95, 0.64, 0.54],
+      "albedo": [
+        0.95,
+        0.64,
+        0.54
+      ],
       "metallic": 1.0,
       "roughness": 0.15,
       "flipReflectionY": true,
@@ -90,14 +144,22 @@
       "castsShadow": true
     },
     "obsidian_glossy": {
-      "albedo": [0.03, 0.03, 0.035],
+      "albedo": [
+        0.03,
+        0.03,
+        0.035
+      ],
       "metallic": 0.0,
       "roughness": 0.04,
       "cullMode": "back",
       "castsShadow": true
     },
     "jade_ceramic": {
-      "albedo": [0.10, 0.70, 0.40],
+      "albedo": [
+        0.1,
+        0.7,
+        0.4
+      ],
       "metallic": 0.0,
       "roughness": 0.12,
       "flipReflectionY": true,
@@ -105,7 +167,11 @@
       "castsShadow": true
     },
     "matte_terracotta": {
-      "albedo": [0.80, 0.35, 0.22],
+      "albedo": [
+        0.8,
+        0.35,
+        0.22
+      ],
       "metallic": 0.0,
       "roughness": 0.92,
       "flipReflectionY": true,
@@ -113,7 +179,11 @@
       "castsShadow": true
     },
     "glass_sapphire": {
-      "albedo": [0.15, 0.45, 1.0],
+      "albedo": [
+        0.15,
+        0.45,
+        1.0
+      ],
       "metallic": 0.1,
       "roughness": 0.02,
       "opacity": 0.35,
@@ -122,7 +192,11 @@
       "castsShadow": false
     },
     "glass_amber": {
-      "albedo": [1.0, 0.65, 0.1],
+      "albedo": [
+        1.0,
+        0.65,
+        0.1
+      ],
       "metallic": 0.1,
       "roughness": 0.02,
       "opacity": 0.35,
@@ -131,114 +205,231 @@
       "castsShadow": false
     }
   },
-
   "entities": [
     {
       "name": "ground",
       "mesh": "assets/models/ground.obj",
       "material": "floor",
-      "position": [0.0, 0.0, 0.0],
-      "scale": [3.0, 1.0, 3.0]
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        3.0,
+        1.0,
+        3.0
+      ]
     },
-
     {
       "name": "center_pedestal",
       "mesh": "assets/models/cylinder.obj",
       "material": "pedestal",
-      "position": [0.0, 0.3, 0.0],
-      "scale": [2.2, 0.4, 2.2]
+      "position": [
+        0.0,
+        0.3,
+        0.0
+      ],
+      "scale": [
+        2.2,
+        0.4,
+        2.2
+      ]
     },
     {
       "name": "center_ring",
       "mesh": "assets/models/torus.obj",
       "material": "gold_hero",
-      "position": [0.0, 1.5, 0.0],
-      "rotation": [0.0, 0.0, 0.0],
-      "scale": [1.0, 1.0, 1.0]
+      "position": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     {
       "name": "center_ball",
       "mesh": "assets/models/sphere.obj",
       "material": "chrome_mirror",
-      "position": [0.0, 1.5, 0.0],
-      "scale": [0.8, 0.8, 0.8]
+      "position": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
     },
-
     {
       "name": "pedestal_left",
       "mesh": "assets/models/cylinder.obj",
       "material": "pedestal",
-      "position": [-3.8, 0.4, 1.0],
-      "scale": [1.1, 0.5, 1.1]
+      "position": [
+        -3.8,
+        0.4,
+        1.0
+      ],
+      "scale": [
+        1.1,
+        0.5,
+        1.1
+      ]
     },
     {
       "name": "sphere_chrome",
       "mesh": "assets/models/sphere.obj",
       "material": "chrome_mirror",
-      "position": [-3.8, 1.6, 1.0],
-      "scale": [0.7, 0.7, 0.7]
+      "position": [
+        -3.8,
+        1.6,
+        1.0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
     },
-
     {
       "name": "pedestal_far_left",
       "mesh": "assets/models/cylinder.obj",
       "material": "pedestal",
-      "position": [-6.0, 0.35, -1.0],
-      "scale": [1.1, 0.45, 1.1]
+      "position": [
+        -6.0,
+        0.35,
+        -1.0
+      ],
+      "scale": [
+        1.1,
+        0.45,
+        1.1
+      ]
     },
     {
       "name": "sphere_copper",
       "mesh": "assets/models/sphere.obj",
       "material": "copper_polished",
-      "position": [-6.0, 1.5, -1.0],
-      "scale": [0.7, 0.7, 0.7]
+      "position": [
+        -6.0,
+        1.5,
+        -1.0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
     },
-
     {
       "name": "pedestal_right",
       "mesh": "assets/models/cylinder.obj",
       "material": "pedestal",
-      "position": [3.8, 0.4, 1.0],
-      "scale": [1.1, 0.5, 1.1]
+      "position": [
+        3.8,
+        0.4,
+        1.0
+      ],
+      "scale": [
+        1.1,
+        0.5,
+        1.1
+      ]
     },
     {
       "name": "sphere_jade",
       "mesh": "assets/models/sphere.obj",
       "material": "jade_ceramic",
-      "position": [3.8, 1.6, 1.0],
-      "scale": [0.7, 0.7, 0.7]
+      "position": [
+        3.8,
+        1.6,
+        1.0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
     },
-
     {
       "name": "pedestal_far_right",
       "mesh": "assets/models/cylinder.obj",
       "material": "pedestal",
-      "position": [6.0, 0.35, -1.0],
-      "scale": [1.1, 0.45, 1.1]
+      "position": [
+        6.0,
+        0.35,
+        -1.0
+      ],
+      "scale": [
+        1.1,
+        0.45,
+        1.1
+      ]
     },
     {
       "name": "sphere_terracotta",
       "mesh": "assets/models/sphere.obj",
       "material": "matte_terracotta",
-      "position": [6.0, 1.5, -1.0],
-      "scale": [0.7, 0.7, 0.7]
+      "position": [
+        6.0,
+        1.5,
+        -1.0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
     },
-
     {
       "name": "glass_sapphire_pane",
       "mesh": "assets/models/cube.obj",
       "material": "glass_sapphire",
-      "position": [5.3515, 1.4, 7.9515],
-      "rotation": [0.0, -45.0, 0.0],
-      "scale": [2.4, 2.8, 0.06]
+      "position": [
+        5.3515,
+        1.4,
+        7.9515
+      ],
+      "rotation": [
+        0.0,
+        -45.0,
+        0.0
+      ],
+      "scale": [
+        2.4,
+        2.8,
+        0.06
+      ]
     },
     {
       "name": "glass_amber_pane",
       "mesh": "assets/models/cube.obj",
       "material": "glass_amber",
-      "position": [7.0485, 1.4, 7.9515],
-      "rotation": [0.0, 45.0, 0.0],
-      "scale": [2.4, 2.8, 0.06]
+      "position": [
+        7.0485,
+        1.4,
+        7.9515
+      ],
+      "rotation": [
+        0.0,
+        45.0,
+        0.0
+      ],
+      "scale": [
+        2.4,
+        2.8,
+        0.06
+      ]
     }
   ]
 }

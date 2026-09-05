@@ -1,6 +1,10 @@
 {
   "camera": {
-    "position": [0.0, 6.0, 22.0],
+    "position": [
+      0.0,
+      6.0,
+      22.0
+    ],
     "pitch": -12.0,
     "yaw": -90.0,
     "fov": 60.0,
@@ -8,16 +12,22 @@
     "zNear": 0.1,
     "zFar": 120.0
   },
-
   "skybox": "assets/textures/skybox.hdr",
-
   "shadow": {
     "width": 2048,
     "height": 2048,
     "resolution": 2048,
     "bias": 0.012,
-    "direction": [-0.53, -0.76, 0.38],
-    "center": [0.0, 1.0, 0.0],
+    "direction": [
+      -0.53,
+      -0.76,
+      0.38
+    ],
+    "center": [
+      0.0,
+      1.0,
+      0.0
+    ],
     "extent": 25.0,
     "projSize": 25.0,
     "zNear": 0.1,
@@ -25,37 +35,65 @@
     "nearPlane": 0.1,
     "farPlane": 60.0
   },
-
   "lights": [
     {
       "name": "sun",
       "type": "directional",
-      "direction": [-0.53, -0.76, 0.38],
-      "color": [1.0, 0.95, 0.85],
+      "direction": [
+        -0.53,
+        -0.76,
+        0.38
+      ],
+      "color": [
+        1.0,
+        0.95,
+        0.85
+      ],
       "intensity": 3.5,
       "castsShadow": true
     },
     {
       "name": "fill",
       "type": "directional",
-      "direction": [1.0, -0.2, 0.8],
-      "color": [0.5, 0.6, 0.9],
+      "direction": [
+        1.0,
+        -0.2,
+        0.8
+      ],
+      "color": [
+        0.5,
+        0.6,
+        0.9
+      ],
       "intensity": 0.6,
       "castsShadow": false
     },
     {
       "name": "flashlight",
-      "type": "point",
-      "position": [0.0, 0.0, 0.0],
-      "color": [1.0, 0.95, 0.9],
+      "type": "spot",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "color": [
+        1.0,
+        0.95,
+        0.9
+      ],
       "intensity": 0.0,
-      "castsShadow": false
+      "castsShadow": false,
+      "cutOff": 12.5,
+      "outerCutOff": 17.5
     }
   ],
-
   "materials": {
     "concrete_floor": {
-      "albedo": [0.15, 0.16, 0.18],
+      "albedo": [
+        0.15,
+        0.16,
+        0.18
+      ],
       "metallic": 0.0,
       "roughness": 0.95,
       "opacity": 1.0,
@@ -63,7 +101,11 @@
       "castsShadow": false
     },
     "concrete_dark": {
-      "albedo": [0.18, 0.18, 0.19],
+      "albedo": [
+        0.18,
+        0.18,
+        0.19
+      ],
       "metallic": 0.0,
       "roughness": 0.9,
       "opacity": 1.0,
@@ -71,7 +113,11 @@
       "castsShadow": true
     },
     "concrete_light": {
-      "albedo": [0.35, 0.34, 0.32],
+      "albedo": [
+        0.35,
+        0.34,
+        0.32
+      ],
       "metallic": 0.0,
       "roughness": 0.85,
       "opacity": 1.0,
@@ -79,7 +125,11 @@
       "castsShadow": true
     },
     "brass_core": {
-      "albedo": [0.9, 0.7, 0.3],
+      "albedo": [
+        0.9,
+        0.7,
+        0.3
+      ],
       "metallic": 0.8,
       "roughness": 0.6,
       "opacity": 1.0,
@@ -88,7 +138,11 @@
       "castsShadow": true
     },
     "glass_cyan": {
-      "albedo": [0.1, 0.8, 0.9],
+      "albedo": [
+        0.1,
+        0.8,
+        0.9
+      ],
       "metallic": 0.2,
       "roughness": 0.05,
       "opacity": 0.3,
@@ -98,7 +152,11 @@
       "castsShadow": false
     },
     "glass_orange": {
-      "albedo": [0.9, 0.4, 0.1],
+      "albedo": [
+        0.9,
+        0.4,
+        0.1
+      ],
       "metallic": 0.2,
       "roughness": 0.05,
       "opacity": 0.3,
@@ -108,7 +166,11 @@
       "castsShadow": false
     },
     "green": {
-      "albedo": [0.0, 0.57, 0.27],
+      "albedo": [
+        0.0,
+        0.57,
+        0.27
+      ],
       "metallic": 0.0,
       "roughness": 0.9,
       "opacity": 1.0,
@@ -116,7 +178,11 @@
       "castsShadow": true
     },
     "white": {
-      "albedo": [0.9, 0.9, 0.9],
+      "albedo": [
+        0.9,
+        0.9,
+        0.9
+      ],
       "metallic": 0.0,
       "roughness": 0.9,
       "opacity": 1.0,
@@ -124,7 +190,11 @@
       "castsShadow": true
     },
     "red": {
-      "albedo": [0.81, 0.17, 0.22],
+      "albedo": [
+        0.81,
+        0.17,
+        0.22
+      ],
       "metallic": 0.0,
       "roughness": 0.9,
       "opacity": 1.0,
@@ -132,103 +202,246 @@
       "castsShadow": true
     }
   },
-
   "entities": [
     {
       "name": "ground_plane",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_floor",
-      "position": [0.0, -0.5, 0.0],
-      "scale": [40.0, 0.5, 40.0],
-      "rotation": [0.0, 0.0, 0.0]
+      "position": [
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "scale": [
+        40.0,
+        0.5,
+        40.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
     },
     {
       "name": "monolith_left",
       "mesh": "assets/models/cube.obj",
       "material": "green",
-      "position": [-8.0, 3.7, -5.0],
-      "scale": [2.0, 8.0, 2.0],
-      "rotation": [0.0, 15.0, 0.0]
+      "position": [
+        -8.0,
+        3.7,
+        -5.0
+      ],
+      "scale": [
+        2.0,
+        8.0,
+        2.0
+      ],
+      "rotation": [
+        0.0,
+        15.0,
+        0.0
+      ]
     },
     {
       "name": "monolith_right",
       "mesh": "assets/models/cube.obj",
       "material": "red",
-      "position": [7.0, 5.7, -8.0],
-      "scale": [3.0, 12.0, 3.0],
-      "rotation": [0.0, -25.0, 0.0]
+      "position": [
+        7.0,
+        5.7,
+        -8.0
+      ],
+      "scale": [
+        3.0,
+        12.0,
+        3.0
+      ],
+      "rotation": [
+        0.0,
+        -25.0,
+        0.0
+      ]
     },
     {
       "name": "monolith_back",
       "mesh": "assets/models/cube.obj",
       "material": "white",
-      "position": [-2.0, 2.7, -12.0],
-      "scale": [5.0, 6.0, 2.0],
-      "rotation": [0.0, 5.0, 0.0]
+      "position": [
+        -2.0,
+        2.7,
+        -12.0
+      ],
+      "scale": [
+        5.0,
+        6.0,
+        2.0
+      ],
+      "rotation": [
+        0.0,
+        5.0,
+        0.0
+      ]
     },
     {
       "name": "fallen_block_1",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_light",
-      "position": [-5.0, 0.5, 4.0],
-      "scale": [1.5, 1.5, 3.0],
-      "rotation": [15.0, 45.0, 10.0]
+      "position": [
+        -5.0,
+        0.5,
+        4.0
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        3.0
+      ],
+      "rotation": [
+        15.0,
+        45.0,
+        10.0
+      ]
     },
     {
       "name": "fallen_block_2",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_light",
-      "position": [6.0, 0.7, 3.0],
-      "scale": [2.0, 2.0, 2.0],
-      "rotation": [0.0, -15.0, 0.0]
+      "position": [
+        6.0,
+        0.7,
+        3.0
+      ],
+      "scale": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "rotation": [
+        0.0,
+        -15.0,
+        0.0
+      ]
     },
     {
       "name": "rubble_1",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_light",
-      "position": [-1.0, -0.1, 6.0],
-      "scale": [0.8, 0.8, 0.8],
-      "rotation": [45.0, 20.0, 45.0]
+      "position": [
+        -1.0,
+        -0.1,
+        6.0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "rotation": [
+        45.0,
+        20.0,
+        45.0
+      ]
     },
     {
       "name": "rubble_2",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_light",
-      "position": [3.0, 0.2, 7.0],
-      "scale": [1.2, 1.2, 1.2],
-      "rotation": [10.0, 60.0, 0.0]
+      "position": [
+        3.0,
+        0.2,
+        7.0
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "rotation": [
+        10.0,
+        60.0,
+        0.0
+      ]
     },
     {
       "name": "pedestal",
       "mesh": "assets/models/cube.obj",
       "material": "concrete_dark",
-      "position": [0.0, 0.7, 0.0],
-      "scale": [2.0, 2.0, 2.0],
-      "rotation": [0.0, 45.0, 0.0]
+      "position": [
+        0.0,
+        0.7,
+        0.0
+      ],
+      "scale": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "rotation": [
+        0.0,
+        45.0,
+        0.0
+      ]
     },
     {
       "name": "center_sphere",
       "mesh": "assets/models/sphere.obj",
       "material": "brass_core",
-      "position": [0.0, 4.2, 0.0],
-      "scale": [1.2, 1.2, 1.2],
-      "rotation": [0.0, 0.0, 0.0]
+      "position": [
+        0.0,
+        4.2,
+        0.0
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
     },
     {
       "name": "glass_shield_1",
       "mesh": "assets/models/cube.obj",
       "material": "glass_cyan",
-      "position": [0.0, 4.2, 3.0],
-      "scale": [4.0, 4.0, 0.1],
-      "rotation": [0.0, -20.0, 0.0]
+      "position": [
+        0.0,
+        4.2,
+        3.0
+      ],
+      "scale": [
+        4.0,
+        4.0,
+        0.1
+      ],
+      "rotation": [
+        0.0,
+        -20.0,
+        0.0
+      ]
     },
     {
       "name": "glass_shield_2",
       "mesh": "assets/models/cube.obj",
       "material": "glass_orange",
-      "position": [-2.5, 3.7, 1.8],
-      "scale": [3.5, 3.5, 0.1],
-      "rotation": [0.0, 35.0, 0.0]
+      "position": [
+        -2.5,
+        3.7,
+        1.8
+      ],
+      "scale": [
+        3.5,
+        3.5,
+        0.1
+      ],
+      "rotation": [
+        0.0,
+        35.0,
+        0.0
+      ]
     }
   ]
 }

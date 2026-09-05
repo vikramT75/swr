@@ -114,12 +114,20 @@ struct PBRShader : Shader
             float att = 1.0f;
             if (light.type == LightType::Directional)
                 L = -light.direction.normalized();
-            else
+            else // Point or Spot
             {
                 Vec3 toL = light.position - frag.position;
                 float d = toL.length();
                 L = toL * (1.f / d);
                 att = 1.0f / (light.attConstant + light.attLinear * d + light.attQuadratic * d * d);
+                
+                if (light.type == LightType::Spot)
+                {
+                    float theta = L.dot(-light.direction.normalized());
+                    float epsilon = light.cutOff - light.outerCutOff;
+                    float intensity = MathUtils::clamp((theta - light.outerCutOff) / epsilon, 0.0f, 1.0f);
+                    att *= intensity;
+                }
             }
             Vec3 H = (V + L).normalized();
             float nL = std::max(N.dot(L), 0.0f), nV = std::max(N.dot(V), 0.0f);

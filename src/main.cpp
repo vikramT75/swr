@@ -102,11 +102,12 @@ int main(int, char *[])
         }
         f_was_pressed = f_is_pressed;
 
-        // Flashlight tracks camera (light index 2 = point light in JSON)
+        // Flashlight tracks camera
         if (scene.lights.lights.size() > 2)
         {
             scene.lights.lights[2].position = scene.camera.position;
-            scene.lights.lights[2].intensity = flashlight_on ? 5.0f : 0.0f;
+            scene.lights.lights[2].direction = scene.camera.forward();
+            scene.lights.lights[2].intensity = flashlight_on ? 15.0f : 0.0f; // Boosted intensity for spot
         }
 
         // --- Animations ---
